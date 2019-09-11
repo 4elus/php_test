@@ -1,0 +1,14 @@
+1)
+SELECT name, COUNT(model_id) AS cnt 
+FROM cars 
+INNER JOIN models ON cars.model_id=models.id 
+GROUP BY name;
+
+2)
+SELECT id FROM cars WHERE model_id > (SELECT MAX(id) FROM models)
+
+3)
+SELECT name, SUM(price) FROM models, cars
+WHERE price > 10 AND price < 60 AND cars.model_id = models.id
+GROUP BY name;
+
